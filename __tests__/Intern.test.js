@@ -4,7 +4,7 @@ const Intern = require('../lib/Intern.js');
 // Creats an Intern Role to be filled
 test('makes an intern role', () => {
     const intern = new Intern('Intern');
-    expect(intern.getRole().toBe('Intern'));
+    expect(intern.getRole()).toBe('Intern');
 });
 
 // Creates an Intern oject to fill Intern role
