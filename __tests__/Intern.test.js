@@ -12,6 +12,7 @@ test('makes an intern object', () => {
     const intern = new Intern('Sarah', 3, 'Sarahhh@someemail', 'Texas A&M');
 
     expect(intern.name).toBe('Sarah');
+    expect(intern.name.length).toBeGreaterThan(0);
     expect(intern.id).toEqual(expect.any(Number));
     expect(intern.email).toEqual(expect.any(String));
     expect(intern.school).toEqual(expect.any(String));

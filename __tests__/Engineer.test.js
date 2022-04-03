@@ -12,6 +12,7 @@ test('makes an engineer object', () => {
     const engineer = new Engineer('John', 2, "johnny123@somemail.com", 'johnGitHub');
 
     expect(engineer.name).toBe('John');
+    expect(engineer.name.length).toBeGreaterThan(0);
     expect(engineer.id).toEqual(expect.any(Number));
     expect(engineer.email).toEqual(expect.any(String));
     expect(engineer.github).toEqual(expect.any(String));

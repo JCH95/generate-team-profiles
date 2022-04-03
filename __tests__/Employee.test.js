@@ -12,6 +12,7 @@ test('makes an employee object', () => {
     const employee = new Employee('Josh', 1, "joosh8@somemail.com");
 
     expect(employee.name).toBe('Josh');
+    expect(employee.name.length).toBeGreaterThan(0);
     expect(employee.id).toEqual(expect.any(Number));
     expect(employee.email).toEqual(expect.any(String));
 });
