@@ -7,12 +7,12 @@ function internPrompts() {
             {
                 type: 'input',
                 name: 'name',
-                message: 'What is the name of your employee? (Required)',
+                message: 'What is the name of your intern? (Required)',
                 validate: nameInput => {
                     if (nameInput) {
                         return true;
                     } else {
-                        console.log("Please enter the employee's name.");
+                        console.log("Please enter the intern's name.");
                         return false;
                     }
                 }
@@ -20,12 +20,12 @@ function internPrompts() {
             {
                 type: 'input',
                 name: 'id',
-                message: 'Please enter the associated employee ID: (Required)',
+                message: "Please enter the associated intern's ID: (Required)",
                 validate: idInput => {
                     if (idInput) {
                         return true;
                     } else {
-                        console.log("Please enter the employee's ID.")
+                        console.log("Please enter the intern's ID.")
                         return false;
                     }
                 }
@@ -33,12 +33,12 @@ function internPrompts() {
             {
                 type: 'input',
                 name: 'email',
-                message: 'Please enter the associated employee email address: (Required)',
+                message: "Please enter the associated intern's email address: (Required)",
                 validate: emailInput => {
                     if (emailInput) {
                         return true;
                     } else {
-                        console.log("Please enter the employee's email address.");
+                        console.log("Please enter the intern's email address.");
                         return false;
                     }
                 }
@@ -46,12 +46,12 @@ function internPrompts() {
             {
                 type: 'input',
                 name: 'school',
-                message: "Please enter the employee's school:",
+                message: "Please enter the intern's school: (Required)",
                 validate: schoolInput => {
                     if (schoolInput) {
                         return true;
                     } else {
-                        console.log("Please enter the employee's school.");
+                        console.log("Please enter the intern's school.");
                         return false;
                     }
                 }
