@@ -16,7 +16,7 @@ test('makes a manager object', () => {
     expect(manager.id).toEqual(expect.any(Number));
     expect(manager.email).toEqual(expect.any(String));
     expect(manager.office).toEqual(expect.any(Number));
-    // expect(officeNumber).toEqual(manager.officeNumber);
+    expect(office).toEqual(manager.office);
 });
 
 module.exports = Manager;

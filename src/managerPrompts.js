@@ -2,6 +2,11 @@ const { validate } = require("@babel/types");
 const inquirer = require("inquirer");
 
 function managerPrompts() {
+    console.log(`
+    =================
+    Manager Questions
+    =================
+    `);
     inquirer
         .prompt([
             {
