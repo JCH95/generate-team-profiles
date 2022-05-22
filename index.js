@@ -21,10 +21,20 @@ async function newEmployee(role) {
     let newEmployee = {};
     let responses = {};
 
-    if(role === "Engineer") {
+    if (role === "Engineer") {
         responses = await inquirer.prompt(engineerPrompts);
         newEmployee = new Engineer(
             responses.name, responses.id, responses.email, responses.github
-        )
+        );
+    } else if (role === "Intern") {
+        responses = await inquirer.prompt(internPrompts);
+        newEmployee = new Intern(
+            responses.name, responses.id, responses.email, responses.school
+        );
+    } else if (role === "Manager") {
+        responses = await inquirer.prompt(managerPrompts)
+        newEmployee = new Manager(
+            responses.name, respones.id, responses.email, responses.office
+        );
     }
 }
