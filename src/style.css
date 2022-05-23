@@ -1,0 +1,13 @@
+header {
+    background-color: lightcoral;
+    color: white;
+    padding: 20px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    color: darkgrey;
+    padding: 10px;
+    margin: 10px;
+}
