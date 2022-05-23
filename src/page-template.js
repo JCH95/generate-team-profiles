@@ -23,7 +23,7 @@ function htmlGenerator(employees) {
 const generateCards = cardArr => {
     for (var i = 0; i < employees.length; i++) {
         if (employees[i].role === "Manager") {
-            return `
+            return newHtml += `
                 <div class="card text-white" style="width: 18rem;">
                     <div class="card-body">
                         <h3 class="card-title bg-blue">${employees[i].name}</h5>
@@ -35,8 +35,16 @@ const generateCards = cardArr => {
                 </div>
             `
         } else if (employees[i].role === "Engineer") {
-            return `
-                
+            return newHtml += `
+                <div class="card text-white" style="width: 18rem;">
+                    <div class="card-body">
+                        <h3 class="card-title bg-blue">${employees[i].name}</h5>
+                        <h4 class="card-subtitle mb-2 text-muted">${employees[i].role}</h6>
+                        <p class="card-text">ID: ${employees[i].id}</p>
+                        <p class="card-text">Email: ${employees[i].email}</p>
+                        <p class="card-text">Office: ${employees[i].office}</p>
+                    </div>
+                </div>
             `
         }
     }
