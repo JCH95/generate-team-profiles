@@ -14,14 +14,10 @@ const { resolve } = require('path');
 
 const employees = [];
 
-// function writeToFile(fileName, data) {
-//     fsPromises.
-// }
-
 // Generate employee info
 async function newEmployee(role) {
-    let newEmployee = {};
-    let responses = {};
+    const newEmployee = {};
+    const responses = {};
 
     if (role === "Engineer") {
         responses = await inquirer.prompt(engineerPrompts);
@@ -41,6 +37,16 @@ async function newEmployee(role) {
     }
     employees.push(newEmployee);
 
+    const otherEmployees = responses.otherEmployees;
+    if (otherEmployees === "No") {
+        const html = htmlGenerator(employees);
+        writeToFile(`./dist/index.html`, html);
+
+        const css = cssGenerator(employees);
+        writeToFile(`./dist/style.css`, css);
+    } else {
+        newEmployee(otherEmployees);
+    }
 }
 
 function writeToFile(fileName, data) {
