@@ -24,15 +24,19 @@ const generateCards = cardArr => {
     for (var i = 0; i < employees.length; i++) {
         if (employees[i].role === "Manager") {
             return `
-                <div class="card" style="width: 18rem;">
+                <div class="card text-white" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <h3 class="card-title bg-blue">${employees[i].name}</h5>
+                        <h4 class="card-subtitle mb-2 text-muted">${employees[i].role}</h6>
+                        <p class="card-text">ID: ${employees[i].id}</p>
+                        <p class="card-text">Email: ${employees[i].email}</p>
+                        <p class="card-text">Office: ${employees[i].office}</p>
                     </div>
                 </div>
+            `
+        } else if (employees[i].role === "Engineer") {
+            return `
+                
             `
         }
     }
