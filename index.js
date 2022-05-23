@@ -7,10 +7,12 @@ const Manager = require('./lib/Manager');
 const internPrompts = require('./src/internPrompts');
 const engineerPrompts = require('./src/engineerPrompts');
 const managerPrompts = require('./src/managerPrompts');
-const css = require('./src/style.css');
+const cssGenerator = require('./src/style.css');
 const htmlGenerator = require('./src/page-template');
+const { rejects } = require('assert');
+const { resolve } = require('path');
 
-const employeeArray = [];
+const employees = [];
 
 // function writeToFile(fileName, data) {
 //     fsPromises.
@@ -37,4 +39,20 @@ async function newEmployee(role) {
             responses.name, respones.id, responses.email, responses.office
         );
     }
+    employees.push(newEmployee);
+
 }
+
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+        if (err) {
+            reject(err);
+            console.log(err);
+            return;
+        }
+        resolve({ ok: true, message: "Team generated!" });
+    });
+}
+
+// Initialize app
+newEmployee("Manager");
