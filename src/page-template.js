@@ -15,7 +15,7 @@ function htmlGenerator(employees) {
                 <header>
                     <h1>My Team<h1>
                 </header>
-                <div class="container">
+                <div class="container bg-red">
                     <div class="row">
     `;
 }
@@ -24,13 +24,13 @@ const generateCards = cardArr => {
     for (var i = 0; i < employees.length; i++) {
         if (employees[i].role === "Manager") {
             return newHtml += `
-                <div class="card text-white" style="width: 18rem;">
+                <div class="card text-white bg " style="width: 18rem;">
                     <div class="card-body">
                         <h3 class="card-title bg-blue">${employees[i].name}</h5>
                         <h4 class="card-subtitle mb-2 text-muted">${employees[i].role}</h6>
-                        <p class="card-text">ID: ${employees[i].id}</p>
-                        <p class="card-text">Email: ${employees[i].email}</p>
-                        <p class="card-text">Office: ${employees[i].office}</p>
+                        <p class="card-text bg-grey border-dark">ID: ${employees[i].id}</p>
+                        <p class="card-text bg-grey border-dark">Email: ${employees[i].email}</p>
+                        <p class="card-text bg-grey border-dark">Office: ${employees[i].office}</p>
                     </div>
                 </div>
             `
@@ -40,9 +40,21 @@ const generateCards = cardArr => {
                     <div class="card-body">
                         <h3 class="card-title bg-blue">${employees[i].name}</h5>
                         <h4 class="card-subtitle mb-2 text-muted">${employees[i].role}</h6>
-                        <p class="card-text">ID: ${employees[i].id}</p>
-                        <p class="card-text">Email: ${employees[i].email}</p>
-                        <p class="card-text">Office: ${employees[i].office}</p>
+                        <p class="card-text bg-grey border-dark">ID: ${employees[i].id}</p>
+                        <p class="card-text bg-grey border-dark">Email: ${employees[i].email}</p>
+                        <p class="card-text bg-grey border-dark">Office: ${employees[i].office}</p>
+                    </div>
+                </div>
+            `
+        } else if (employees[i].role === "Intern") {
+            return newHtml += `
+                <div class="card text-white" style="width: 18rem;">
+                    <div class="card-body">
+                        <h3 class="card-title bg-blue">${employees[i].name}</h5>
+                        <h4 class="card-subtitle mb-2 text-muted">${employees[i].role}</h6>
+                        <p class="card-text bg-grey border-dark">ID: ${employees[i].id}</p>
+                        <p class="card-text bg-grey border-dark">Email: ${employees[i].email}</p>
+                        <p class="card-text bg-grey border-dark">Office: ${employees[i].office}</p>
                     </div>
                 </div>
             `
