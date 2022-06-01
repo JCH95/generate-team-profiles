@@ -12,12 +12,12 @@ const htmlGenerator = require('./src/page-template');
 const { rejects } = require('assert');
 const { resolve } = require('path');
 
-const employees = [];
+let employees = [];
 
 // Generate employee info
 async function newEmployee(role) {
-    const newEmployee = {};
-    const responses = {};
+    let newEmployee = {};
+    let responses = {};
 
     if (role === "Engineer") {
         responses = await inquirer.prompt(engineerPrompts);
@@ -32,20 +32,42 @@ async function newEmployee(role) {
     } else if (role === "Manager") {
         responses = await inquirer.prompt(managerPrompts)
         newEmployee = new Manager(
-            responses.name, respones.id, responses.email, responses.office
+            responses.name, responses.id, responses.email, responses.office
         );
     }
+    // inquirer
+    //     .prompt([
+    //         {
+    //             type: 'list',
+    //             name: 'role',
+    //             message: 'Choose which role your employee fits:',
+    //             choices: ['Intern', 'Engineer', 'Manager', 'There are no further members to add!']
+    //         }
+    //     ])
+    //     .then(promptChoices => {
+    //         switch(promptChoices.role) {
+    //             case "Manager": 
+    //                 managerPrompts();
+    //                 break;
+    //             case "Engineer": 
+    //                 engineerPrompts();
+    //                 break;
+    //             case "Intern":
+    //                 internPrompts();
+    //                 break;
+    //         }
+    //     })
     employees.push(newEmployee);
 
-    const otherEmployees = responses.otherEmployees;
-    if (otherEmployees === "No") {
+    let otherEmployees = responses.otherEmployees;
+    if (otherEmployees === "No, the team is complete!") {
         const html = htmlGenerator(employees);
         writeToFile(`./dist/index.html`, html);
 
         const css = cssGenerator(employees);
         writeToFile(`./dist/style.css`, css);
     } else {
-        newEmployee(otherEmployees);
+        newEmployee(responses.otherEmployees);
     }
 }
 
@@ -61,4 +83,4 @@ function writeToFile(fileName, data) {
 }
 
 // Initialize app
-newEmployee("Manager");
+newEmployee('Manager');

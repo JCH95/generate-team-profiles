@@ -1,14 +1,14 @@
 const { validate } = require("@babel/types");
 const inquirer = require("inquirer");
 
-function managerPrompts() {
-    console.log(`
-    =================
-    Manager Questions
-    =================
-    `);
-    inquirer
-        .prompt([
+let managerPrompts = [
+    // console.log(`
+    // =================
+    // Manager Questions
+    // =================
+    // `);
+    // inquirer
+    //     .prompt([
             {
                 type: 'input',
                 name: 'name',
@@ -62,12 +62,12 @@ function managerPrompts() {
                 }
             },
             {
-                type: 'choice',
+                type: 'list',
                 name: 'otherEmployees',
                 message: 'Are there any other employees to add to the team?',
-                choices: ['Intern', 'Engineer', 'No, the team is complete!']
+                choices: ['Intern', 'Engineer', 'Manager', 'No, the team is complete!']
             }
-        ]);
-}
+        // ]);
+];
 
 module.exports = managerPrompts;
